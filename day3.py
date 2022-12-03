@@ -25,9 +25,7 @@ sumvalue = 0
 
 
 for (e1, e2, e3) in aoc.iter_groups(lines, 3):
-    print(e1, e2, e3)
     common = set(e1).intersection(set(e2)).intersection(set(e3))
-
     sumvalue = sumvalue + valuedict[list(common)[0]]
 
 print(sumvalue)

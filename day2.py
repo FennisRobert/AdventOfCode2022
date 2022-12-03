@@ -51,7 +51,7 @@ for line in lines:
     if p2 == "Y":
         p22 = p11
     ang = np.angle(p22) * 3 / (2 * np.pi)
-    if ang < 0:
+    if ang < -0.0001:
         ang = 3 + ang
     nump2 = ang + 1
     score = score + nump2

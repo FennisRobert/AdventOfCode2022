@@ -15,17 +15,14 @@ for line in lines:
     N = len(line)
     c1 = line[0 : N // 2]
     c2 = line[N // 2 :]
-
-    common = set(c1).intersection(set(c2))
+    common = set(c1) & set(c2)
     sumvalue = sumvalue + sum([valuedict[c] for c in common])
 
 print(sumvalue)
 
 sumvalue = 0
 
-
-for (e1, e2, e3) in aoc.iter_groups(lines, 3):
-    common = set(e1).intersection(set(e2)).intersection(set(e3))
-    sumvalue = sumvalue + valuedict[list(common)[0]]
+for (e1, e2, e3) in aoc.iter_groups(lines, 3, fmap=set):
+    sumvalue = sumvalue + valuedict[list(e1 & e2 & e3)[0]]
 
 print(sumvalue)

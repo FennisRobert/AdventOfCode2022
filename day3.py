@@ -9,7 +9,6 @@ sumvalue = 0
 valuedict = dict()
 for i, char in enumerate(ascii_lowercase):
     valuedict[char] = i + 1
-for i, char in enumerate(ascii_lowercase):
     valuedict[char.upper()] = i + 27
 
 for line in lines:
@@ -24,11 +23,9 @@ print(sumvalue)
 
 sumvalue = 0
 
-g1 = lines[0::3]
-g2 = lines[1::3]
-g3 = lines[2::3]
 
-for (e1, e2, e3) in zip(g1, g2, g3):
+for (e1, e2, e3) in aoc.iter_groups(lines, 3):
+    print(e1, e2, e3)
     common = set(e1).intersection(set(e2)).intersection(set(e3))
 
     sumvalue = sumvalue + valuedict[list(common)[0]]

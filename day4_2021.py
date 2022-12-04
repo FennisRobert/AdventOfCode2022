@@ -118,8 +118,6 @@ for i, group in enumerate(groups):
     for k, n in enumerate(nums):
         stripeoff[numboard == n] = 1
         if any(np.sum(stripeoff, 0) == 5) or any(np.sum(stripeoff, 1) == 5):
-            print(stripeoff)
-            print(np.sum(numboard[stripeoff == 0][:]))
             numcounter.append((k, np.sum(numboard[stripeoff == 0][:]) * n))
             break
 

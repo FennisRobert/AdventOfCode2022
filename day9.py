@@ -23,8 +23,10 @@ for line in lines:
         rope[0] = rope[0] + ds
         for k, T in enumerate(rope[1:]):
             dt = rope[k] - T
-            DT = np.sign(dt)
-            if np.max(np.abs(dt)) > 1:
-                rope[k + 1] = rope[k + 1] + DT
+            DT = np.sign(dt) * round(max(abs(dt)) / 2)
+            rope[k + 1] = rope[k + 1] + DT
+            # if np.max(np.abs(dt)) > 1:
+            #    rope[k + 1] = rope[k + 1] + DT
         points.add(tuple([int(x) for x in rope[-1]]))
 print(len(points))
+# 2460 6209

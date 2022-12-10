@@ -12,27 +12,26 @@ class System:
         self.reg = 1
         self.img = ""
 
+    def next(self):
+        self.c += 1
+        if self.c == 20 or (self.c - 20) % 40 == 0:
+            self.signal_strength += self.reg * self.c
+        if abs(self.reg - ((self.c - 1) % 40)) < 2:
+            self.img += "#"
+        else:
+            self.img += " "
+
 
 sys = System()
 
 
-def nextcycle(sys: System):
-    sys.c += 1
-    if sys.c == 20 or (sys.c - 20) % 40 == 0:
-        sys.signal_strength += sys.reg * sys.c
-    if abs(sys.reg - ((sys.c - 1) % 40)) < 2:
-        sys.img += "#"
-    else:
-        sys.img += " "
-
-
 for line in lines:
-    nextcycle(sys)
+    sys.next()
     if line == "noop":
         continue
     else:
         add = int(line.split(" ")[1])
-        nextcycle(sys)
+        sys.next()
         sys.reg += add
 
 print(f"Part 1: {sys.signal_strength}")

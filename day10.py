@@ -1,5 +1,3 @@
-import numpy as np
-
 import aoc as aoc
 
 lines = aoc.read_datafile("day10.txt")
@@ -23,7 +21,6 @@ class System:
 
 
 sys = System()
-
 
 for line in lines:
     sys.next()

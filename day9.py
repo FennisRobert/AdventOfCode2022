@@ -25,8 +25,5 @@ for line in lines:
             dt = rope[k] - T
             DT = np.sign(dt) * round(max(abs(dt)) / 2)
             rope[k + 1] = rope[k + 1] + DT
-            # if np.max(np.abs(dt)) > 1:
-            #    rope[k + 1] = rope[k + 1] + DT
         points.add(tuple([int(x) for x in rope[-1]]))
 print(len(points))
-# 2460 6209

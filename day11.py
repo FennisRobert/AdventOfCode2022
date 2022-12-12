@@ -39,6 +39,8 @@ class Monkey:
         self.items.append(n)
 
 
+# 13937702909
+
 monkeys = dict()
 
 for group in lines:
